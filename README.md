@@ -33,5 +33,5 @@ This portfolio website is a reflection of my journey as a ML Engineer , NLP Engi
 - **Deployment**:
   - GitHub Pages
 
-## Setup
+
 
