@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ayantanu-Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+
+
+
+    
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      a {
+        color: rgb(183, 212, 237);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        /* background-color: rgb(33, 33, 96); */
+        background-color: #151719;
+        color: white;
+        font-family: "Poppins", sans-serif;
+      }
+
+      nav {
+        width: 100%;
+        position: sticky;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 90px;
+        font-size: 20px;
+        background: linear-gradient(to right, #010a14, #052996);
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: center;
+      }
+
+      nav ul li {
+        list-style: none;
+        margin: 0 23px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+      }
+
+      nav ul li a:hover {
+        color: rgb(238, 143, 143);
+      }
+
+      .left {
+        font-size: 1.5rem;
+      }
+
+      .firstsection {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 80px 0;
+      }
+
+      .firstsection > div {
+        width: 30%;
+      }
+
+      .leftsection {
+        font-size: 1.9rem;
+        margin: 30px 0;
+      }
+
+      .rightsetion img {
+        width: 93%;
+        margin: 50px 0;
+        border-radius: 10px;
+        /* Add a border-radius for a rounded corner effect */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 10px 0 20px rgba(0, 0, 20, 0.9);
+        /* Add a subtle box shadow for depth */
+      }
+
+      .purple {
+        --tw-text-opacity: 1;
+        color: rgb(14 165 233 / var(--tw-text-opacity));
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-size: 40px;
+
+      }
+
+      .purple1{
+        --tw-text-opacity: 1;
+        color: rgb(139 92 246 / var(--tw-text-opacity));
+        font-family: "Inter", sans-serif;
+        
+      }
+
+      #element {
+        color: lawngreen;
+      }
+
+      #about {
+        padding: 80px 0;
+        color: white;
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .about-col-1 {
+        flex-basis: 35%;
+      }
+
+      .about-col-1 img {
+        width: 50%;
+        border-radius: 15px;
+      }
+
+      .about-col-2 {
+        flex-basis: 60%;
+      }
+
+      .sub-title {
+        font-size: 60px;
+        font-weight: 600;
+        color: #fec47f;
+      }
+
+      .tab-titles {
+        display: flex;
+        margin: 20px 0 40px;
+      }
+
+      .tab-links {
+        margin-right: 50px;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .tab-links::after {
+        content: " ";
+        width: 0;
+        height: 3px;
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        transition: 0.5s;
+        background-color: rgb(255, 2, 2);
+      }
+
+      .tab-links.active-link::after {
+        width: 50%;
+      }
+
+      .tab-contents ul li {
+        list-style: none;
+        margin: 10px 0;
+      }
+
+      .tab-contents ul li span {
+        color: rgb(95, 252, 16);
+        font-size: 19px;
+      }
+
+      .tab-contents {
+        display: none;
+      }
+
+      .tab-contents.active-tab {
+        display: block;
+      }
+
+      /*-- ------------------ Projects--------->*/
+      #projects {
+        padding: 30px 0;
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+
+      .projects-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 40px;
+        margin-top: 50px;
+      }
+
+      .projects-list div {
+        background: rgb(219, 220, 224);
+        padding: 40px;
+        font-size: 18px;
+        font-weight: 300;
+        border-radius: 20px;
+        color: #0a0a0a;
+        transition: background 0.5s, transform 0.5s;
+        /* Fix typo in 'transform' */
+      }
+
+      .projects-list div i {
+        font-size: 50px;
+        margin-bottom: 30px;
+      }
+
+      .projects-list div h2 {
+        font-size: 30px;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+
+      .projects-list div a {
+        text-decoration: none;
+        color: rgb(250, 0, 0);
+        font-size: 17px;
+        margin-top: 20px;
+        display: inline-block;
+      }
+
+      .projects-list div:hover {
+        background: rgb(194, 141, 243);
+        transform: translateY(-10px);
+      }
+
+      /*-------------Publication-----------*/
+
+      #portfolio {
+        padding: 50px 0;
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+
+      .work-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 40px;
+        margin-top: 50px;
+      }
+
+      .work {
+        border-radius: 15px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .work img {
+        width: 100%;
+        border-radius: 10px;
+        display: block;
+        transition: transform 0.5s;
+      }
+
+      .layer {
+        width: 100%;
+        height: 0;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), #ff004f);
+        border-radius: 15px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 5px;
+        text-align: center;
+        font-size: 14px;
+        transition: height 0.5s;
+      }
+
+      .layer h3 {
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+
+      .layer a {
+        margin-top: 20px;
+        color: black;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 60px;
+        background: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50px;
+        text-align: center;
+      }
+
+      .work:hover img {
+        transform: scale(1.1);
+      }
+
+      .work:hover .layer {
+        height: 100%;
+      }
+
+      .btn {
+        display: block;
+        margin: 50px auto;
+        width: fit-content;
+        border: 1px solid white;
+        padding: 14px 50px;
+        border-radius: 6px;
+        text-decoration: none;
+        color: white;
+        transition: background 0.5s;
+      }
+
+      .btn:hover {
+        background: rgb(188, 152, 221);
+        color: black;
+      }
+
+      /* publications */
+
+    
+      .publication-container {
+        border: 0.01px solid #ccc; /* Adjust border style, width, and color as needed */
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.image-container {
+  flex: 1;
+  text-align: center;
+}
+
+.image-container img {
+  width: 450px; /* Set the desired width */
+  height: 410px; /* Set the desired height */
+  object-fit: cover; /* Ensure the image fills the container and maintains aspect ratio */
+}
+
+.content-container {
+  flex: 1;
+  padding: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-decoration: none; /* Remove underline on buttons */
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+a {
+  text-decoration: none; /* Remove underline on links */
+}
+
+
+      /*---------------gallery-------------*/
+      #gallery {
+        padding: 50px 0;
+        background-color: #151719;;
+      }
+
+      .sub-title {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .gallery-group {
+        margin-bottom: 50px; /* Add some space between groups */
+      }
+
+      .description {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .description h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .description p {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .gallery-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .gallery-item {
+        width: calc(25% - 20px); /* Four columns with 20px margin between */
+        margin: 10px;
+        box-sizing: border-box;
+      }
+
+      .gallery-item img {
+        width: 100%; /* Set the width to 100% for responsiveness */
+        height: auto; /* Maintain aspect ratio */
+        max-width: 300px; /* Set maximum width */
+        max-height: 200px; /* Set maximum height */
+        border-radius: 8px;
+      }
+
+      a {
+            text-decoration: none;
+        }
+
+      /* Media Queries for Responsive Design */
+      @media only screen and (max-width: 767px) {
+        .gallery-item {
+          width: calc(100% - 20px); /* Full width for mobile devices */
+        }
+      }
+
+      /*---------------contact-------------*/
+      #contact {
+        margin-left: 50px;
+        margin-right: 80px;
+      }
+
+      .contact-left {
+        flex-basis: 35%;
+      }
+
+      .contact-right {
+        flex-basis: 60%;
+      }
+
+      .contact-left p {
+        margin-top: 30px;
+      }
+
+      .contact-left p i {
+        color: aliceblue;
+        margin-right: 15px;
+        font-size: 25px;
+      }
+
+      .social-icons {
+        margin-top: 30px;
+      }
+
+      .social-icons a {
+        text-decoration: none;
+        font-size: 30px;
+        margin-right: 15px;
+        color: aliceblue;
+        display: inline-block;
+        transition: transform 0.5s;
+      }
+
+      .social-icons a:hover {
+        color: aqua;
+        transform: translateY(-5px);
+      }
+
+      .btn.btn2 {
+        display: inline-block;
+        /* background: #0a0a0a; */
+        background: linear-gradient(to right, #121223, #817ae7);
+        color: white;
+        border-radius: 30px;
+      }
+
+      .contact-right form {
+        width: 100%;
+      }
+
+
+
+
+      .no-publication {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 1.1em;
+            color: white;
+        }
+
+
+
+
+
+      form input,
+      form textarea {
+        width: 100%;
+        border: 0;
+        outline: none;
+        background: #302f2f;
+        padding: 15px;
+        margin: 15px 0;
+        color: rgb(252, 252, 252);
+        font-size: 18px;
+        border-radius: 6px;
+      }
+
+      form .btn2 {
+        padding: 14px 60px;
+        font-size: 18px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+
+      .copyright {
+        width: 100%;
+        text-align: center;
+        padding: 25px;
+        background: linear-gradient(to right, #010a14, #052996);
+        font-weight: 300;
+        margin-top: 20px;
+      }
+
+      .copyright i {
+        color: red;
+      }
+
+      /*--------------------responsive(For small Screeen)---------------*/
+      nav .fa-solid {
+        display: none;
+      }
+
+      @media only screen and (max-width: 786px) {
+        nav {
+          height: auto;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        nav .fa-solid {
+          display: block;
+          font-size: 25px;
+        }
+
+        nav ul {
+          background: #400518;
+          flex-direction: column;
+          position: fixed;
+          top: 0;
+          right: -500px;
+          width: 150px;
+          height: 100vh;
+          padding-top: 50px;
+          z-index: 2;
+          transition: right 0.5s;
+        }
+
+        nav ul li {
+          display: block;
+          margin: 25px;
+        }
+
+        nav ul .fa-solid {
+          position: absolute;
+          top: 25px;
+          left: 25px;
+          cursor: pointer;
+        }
+
+        .firstsection {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .firstsection > div {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+
+        .rightsetion img {
+          margin: 20px 0;
+        }
+
+        #about,
+        #projects,
+        #portfolio,
+        #contact {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+
+        .about-col-1 img {
+          width: 100%;
+        }
+
+        .tab-titles {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .tab-links {
+          margin: 10px 0;
+        }
+
+        .tab-contents ul li {
+          text-align: center;
+        }
+
+        .sub-title {
+          font-size: 40px;
+        }
+
+        .about-col-1,
+        .about-col-2 {
+          flex-basis: 100%;
+        }
+
+        .about-col-1 {
+          margin-bottom: 30px;
+        }
+
+        .contact-left,
+        .contact-right {
+          flex-basis: 100%;
+        }
+
+        .copyright {
+          font-size: 14px;
+        }
+
+
+
+
+        
+      }
+
+      #msg {
+        color: rgb(48, 243, 5);
+        margin-top: -40px;
+        display: block;
+      }
+
+      .more-text {
+        display: none;
+      }
+      .show-more {
+        color: rgb(229, 95, 140);
+        cursor: pointer;
+        font-weight: bold; /* Makes the text bold */
+      }
+      .accuracy {
+        color: #151719;
+        font-weight: bold;
+      }
+    </style>
+
+    <script
+      src="https://kit.fontawesome.com/93f7569c65.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <div id="header">
+        <nav>
+          <div class="left">Ayantanu</div>
+          <div class="right"></div>
+         <ul id="sidemenu">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="./project.html">Projects</a></li>
+            <li><a href="#portfolio">Publications</a></li>
+            <li><a href="./references.html">Study References</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+
+            <li><a href="#contact">Contact Me</a></li>
+            <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+          </ul>
+          <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="firstsection">
+        <div class="leftsection">
+          Hi ! My name is <span class="purple">Ayantanu Laha.</span>
+
+          <div>
+            Currently I am pursuing my M.Sc. in Computer Science at <span class="purple1">RKMVERI.</span>
+            Specializing in
+          </div>
+          <span id="element"></span>
+        </div>
+        <div class="rightsetion">
+          <img src="bg.jpeg" alt="" />
+        </div>
+      </section>
+
+      <!-- --------------------------- about-------------- -->
+
+      <div id="about">
+        <div class="container">
+          <div class="row">
+            <div class="about-col-1">
+              <img src="RKMRC.jpg" alt="" />
+            </div>
+            <div class="about-col-2">
+              <h1 class="sub-title">About Me</h1>
+
+              <p style="font-size: 18px;">
+                <p>I am a second-year M.Sc. student at
+                  <a href="https://rkmvu.ac.in" style="color: #1E90FF;">Ramakrishna Mission Vivekananda Educational and Research Institute (RKMVERI)</a>.
+                  Currently, I am working on projects under the supervision of
+                  <a href="https://cs.rkmvu.ac.in/~tamal/" style="color: #FF6347;">Tamal Maharaj</a> and
+                  <a href="https://cs.rkmvu.ac.in/~soumitra/" style="color: #FF6347;">Dr. Soumitra Samanta</a>.</p>
+                  <br>
+                  <p >My project topic is: <strong style="color: #f6ff47">"Cross-Lingual Information Retrieval: Indian Language Query to English and Bengali Retrieval"</strong></p>
+                  
+                <br><br>
+                I completed my undergraduate studies at 
+                <a href="https://rkmrc.in" style="color: #1E90FF;">Ramakrishna Mission Residential College (Autonomous), Narendrapur</a>
+                where I was mentored by 
+                <a href="https://scholar.google.co.in/citations?hl=en&user=LlEHeMgAAAAJ&view_op=list_works&sortby=pubdate" style="color: #FF6347;">Bibek Ranjan Ghosh</a>. 
+                During my bachelor's studies, I worked on projects related to Image Steganography under his supervision.
+            </p>
+            
+
+              <div class="tab-titles">
+                <p class="tab-links active-link" onclick="opentab('skills')">
+                  Skills
+                </p>
+                <p class="tab-links" onclick="opentab('experience')">
+                  Experience
+                </p>
+                <p class="tab-links" onclick="opentab('education')">
+                  Eductaion
+                </p>
+              </div>
+              <div class="tab-contents active-tab" id="skills">
+                <ul>
+                  <li>
+                    <span>Web Development</span><br />
+                    <ul>
+                      <li>HTML-CSS-JS.</li>
+                      <li>React.</li>
+                      <li>Streamlit.</li>
+                    </ul>
+                  </li>
+    
+                <li>
+                  <span>Natural Language Processing (NLP)</span><br />
+                  <ul>
+                    <li>Retrieval-Augmented-Generation.</li>
+                    <li>Generative AI.</li>
+                    <li>Prompt Engineering.</li>
+                  </ul>
+              </li>
+                              
+                  <li>
+                    <span>Database Management Systems (DBMS)</span><br />
+                    <ul>
+                      <li>FIASS Database.</li>
+                      <li>Neo4J Database.</li>
+                      <li>MySQL Database.</li>
+                    </ul>
+                </li>
+                
+                </ul>
+              </div>
+
+              <div class="tab-contents" id="experience">
+                <ul>
+
+                  <li>
+                    <span>2024</span><br />
+                    Three Days Workshop on Medical Data Analysis using Python at <span style="color: #817ae7;">ISI Kolkata</span>.<br />
+                    12-14 June, 2024<br />
+                    <a
+                      href="https://www.linkedin.com/posts/ayantanu-laha-2002_medicaldataanalysis-python-datascience-activity-7208171898298355713-b4VA/?utm_source=share&utm_medium=member_desktop"
+                      target="_blank"
+                      >Certificate Link</a
+                    >
+                  </li>
+
+
+                  <li>
+                    <span>2024</span><br />Designing Web App for Perceptron Tech
+                    Fest (RKMVERI).
+                  </li>
+
+                  <li>
+                    <span>2022</span><br />
+                    6th Summer School on AI at <span style="color: #817ae7;">IIIT Hyderabad</span>.<br />
+                    18th July 2022 to 19th August 2022<br />
+                    <a
+                      href="https://drive.google.com/file/d/1CzVvplJKiaLwak6CGb4dhLeyMGl5WCK2/view?usp=drive_link"
+                      target="_blank"
+                      >Certificate Link</a
+                    >
+                  </li>
+
+                  <li>
+                    <span>2022</span><br />Seminar Committee Member (RKMRC).
+                  </li>
+                </ul>
+              </div>
+
+              <div class="tab-contents" id="education">
+                <ul>
+                  <li>
+                    <span
+                      >Ramakrishna Mission Vivekananda Educational and Research
+                      Institute</span
+                    ><br /><span style="color: #817ae7;">Pursuing</span> M.Sc. Computer Science (2023-Present)
+                  </li>
+                  <li>
+                    <span
+                      >Ramakrishna Mission Residential College,
+                      Narendrapur</span
+                    ><br /><span style="color: #817ae7;">CGPA:</span> 9.61<br />B.Sc. Computer Science (2020-23)
+                  </li>
+                  <li>
+                    <span>Dhaniakhali Mahamaya Vidyamandir</span
+                    ><br /><span style="color: #817ae7;">Percentage:</span> 93.2<br />Board of Higher Secondary
+                    Education, West Bengal (2020)
+                  </li>
+                  <li>
+                    <span>Dhaniakhali Mahamaya Vidyamandir</span>
+                    <br /> <span style="color: #817ae7;">Percentage:</span> 91.8<br />Board of Secondary Education,
+                    West Bengal (2018)
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- -------------------------------Projects---------------------------- -->
+<!-- -------------------------------Projects---------------------------- -->
+<div id="projects">
+  <div class="container" style="text-align: center;">
+    <h1 class="sub-title">Projects</h1>
+    
+    <p style="font-size: 22px; font-weight: bold; color: #8af575;">Ongoing Projects :</p>
+
+    <div style="border: 2px solid #0e0e0f; border-radius: 10px; padding: 20px; margin: 20px 0; background: linear-gradient(to right, #121212, #454546);">
+      <ul style="list-style-type: disc; padding-left: 20px; text-align: left; font-size: 16px; color: #aaa4f4;">
+        <li>
+          <p style="font-size: 18px;">RAG-Enhanced Cross-Lingual Information Retrieval: Bridging Bilingual Query Gaps and Streamlining Search.</p>
+          <p style="color: #e98a8a;">(Term Project)</p>
+          <p style="color: #d0d0d0;">Developing a cross-lingual Retrieval-Augmented Generation (RAG) system using FAISS DB to handle Bengali and English queries. Enabled retrieval of relevant answers from bilingual documents and created relational mappings between Bengali and English content.</p>
+          <p style="color: #d0d0d0;">Supervisor: <a href="https://cs.rkmvu.ac.in/~tamal" style="color: #8af575;" target="_blank">Tamal Maharaj</a></p>
+        </li>
+        <br>
+        <li>
+          <p style="font-size: 18px;">Bengali News Article Headline Generation.</p>
+          <a href="https://xlms.rkmvu.ac.in/course/view.php?id=116" style="color: #e98a8a;">(Deep Learning Course project)</a>
+          <p style="color: #d0d0d0;">In this project, we are developing a model for generating news article headlines in Bengali. Using advanced deep learning techniques, the project aims to create concise and impactful headlines that reflect the content of news articles.</p>
+          <p style="color: #d0d0d0;">Supervisor: <a href="https://www.isical.ac.in/~soumitra_r/" style="color: #8af575;" target="_blank">Dr. Soumitra Samanta</a></p>
+        </li>
+      </ul>
+    </div>
+    
+    <p style="font-size: 22px; font-weight: bold; color: #8af575;">Paper or Presentation Link :</p>
+
+    <!-- Project Presentation -->
+    <div style="border: 2px solid #0e0e0f; border-radius: 10px; padding: 20px; margin: 20px 0; background: linear-gradient(to right, #121212, #454546); display: flex; align-items: center;">
+      <div style="flex: 1;">
+        <p style="font-size: 18px; color: #aaa4f4;">Ensemble Learning Strategies for Enhancing Predictive Models in Cardiology. <a href="https://drive.google.com/file/d/1gBjN4nWw8qYX4UF2Cjx2G5xVIErtFfKI/view?usp=drive_link" style="color: rgb(160, 214, 21); ">here</a></p>
+      </div>
+      <div style="flex: 0 0 150px; margin-left: 20px;">
+        <img src="Stacked Based.jpeg" alt="Project Image" style="width: 180px; border-radius: 10px;">
+      </div>
+    </div>
+
+    
+
+
+    
+    <!-- Links to other pages -->
+    <p>For completed projects, go to the <a href="./project.html" style="color: rgb(161, 161, 240); font-weight: bold; font-size: 25px;">Projects page</a></p>
+  </div>
+</div>
+
+
+      <!-- ---------------------Publications---------------- -->
+      <div id="portfolio">
+        <div class="container">
+          <h1 class="sub-title">Publications</h1>
+          <div class="publication-container">
+            <div class="image-container">
+              <img src="Paper1_pic.png" alt="Publication Image">
+            </div>
+            <div class="content-container">
+              <h2>Blind image authentication using singular value decomposition with enhanced robustness by augmenting hamming code</h2>
+              <p>Bibek Ranjan Ghosh, Jyotsna Kumar Mandal, Ayantanu Laha, Swarnadeep Das, Rajarshi Saha and Siddhartha Banerjee</p>
+              <p>International Journal of Computers and Applications (2024).</p><br><br>
+              <div class="button-container">
+                <a href="https://www.tandfonline.com/doi/full/10.1080/1206212X.2024.2408748" target="_blank"><button>ABSTRACT</button></a>
+                <a href="https://www.tandfonline.com/doi/full/10.1080/1206212X.2024.2408748" target="_blank"><button>ARTICLE</button></a>
+                <a href="https://github.com/Ayantanu2002/robust_digital_image_watermarking" target="_blank"><button>CODE</button></a>
+                <a href="https://dde.binghamton.edu/download/" target="_blank"><button>Dataset</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------------------gallery----------- -->
+      <div id="gallery">
+        <div class="container">
+          <h1 class="sub-title">Gallery</h1>
+
+          <!-- First Group with Description -->
+
+          <div class="gallery-group">
+            <div class="description">
+              <h3>Academic Achievements</h3>
+              <p>
+                I am a dedicated academic achiever with a track record of consistent excellence, showcasing a strong commitment to learning, innovation, and leadership in diverse educational pursuits. My achievements are deeply rooted in the unwavering support and encouragement of my family, to whom I owe my success. Their guidance and belief in my potential have been the cornerstone of my academic journey.
+              </p>
+            </div>
+            <div class="gallery-row">
+              <div class="gallery-item">
+                <img src="./cv_RKMRC1.JPG" alt="Image 1" />
+              </div>
+              <div class="gallery-item">
+                <img src="./cv_RKMRC2.JPG" alt="Image 1" />
+              </div>
+              <div class="gallery-item">
+                <img src="./cv_RKMRC3.jpg" alt="Image 1" />
+              </div>
+            </div>
+          </div>
+
+          
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------------------Contact----------- -->
+      <div id="contact">
+        <div class="container">
+          <div class="row">
+            <div class="contact-left">
+              <h1 class="sub-title">Contact Me</h1>
+              <p><i class="fa-solid fa-envelope"></i> <a href="mailto:ayantanulaha@gmail.com">ayantanulaha@gmail.com</a></p>
+              <p>
+                <i class="fa-sharp fa-solid fa-phone-volume"></i> 9476169407
+              </p>
+              <div class="social-icons">
+                <a href="https://github.com/Ayantanu2002"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ayantanu-laha-2002/"><i class="fa-brands fa-linkedin"></i></a>
+                
+                <a href="https://x.com/AyantanuLa32086"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/ayantanu_cs/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/ayantanu.laha.3/"><i class="fa-brands fa-facebook"></i></a>
+                
+                
+              </div>
+              <a href="Ayantanu_Laha_CV.pdf" download class="btn btn2"
+                >Download CV</a
+              >
+            </div>
+            <div class="contact-right">
+              <form name="submit-to-google-sheet">
+                
+                <input
+                  type="text"
+                  name="Name"
+                  placeholder="Your Name"
+                  required
+                />
+                <input
+                  type="email"
+                  name="Email"
+                  placeholder="Your Email"
+                  required
+                />
+                <textarea
+                  name="Message"
+                  rows="6"
+                  placeholder="Your Message"
+                ></textarea>
+                
+                <button type="submit" class="btn btn2">Submit</button>
+                
+              </form>
+              <span id="msg"></span>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          
+            <p>&copy; 2024 Ayantanu Laha. All Rights Reserved.</p>
+          
+        </div>
+      </div>
+    </main>
+
+
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function toggleText() {
+        const moreText = document.querySelector(".more-text");
+        const showMore = document.querySelector(".show-more");
+        if (moreText.style.display === "none") {
+          moreText.style.display = "inline";
+          showMore.textContent = "Show Less";
+        } else {
+          moreText.style.display = "none";
+          showMore.textContent = "Show More";
+        }
+      }
+    </script>
+
+    <script>
+      var typed = new Typed("#element", {
+        strings: [
+          "Machine Learning.",
+          "Deep Learning.",
+          "Natural Language Processing.",
+          "Database.",
+          "Graph Theory.",
+          "&amp; Algorithm.",
+        ],
+        typeSpeed: 50,
+      });
+    </script>
+
+    <script>
+      var tablinks = document.getElementsByClassName("tab-links");
+      var tabcontents = document.getElementsByClassName("tab-contents");
+
+      function opentab(tabname) {
+        for (tablink of tablinks) {
+          tablink.classList.remove("active-link");
+        }
+        for (tabcontent of tabcontents) {
+          tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+      }
+    </script>
+
+    <script>
+      var sidemeu = document.getElementById("sidemenu");
+      function openmenu() {
+        sidemeu.style.right = "0";
+      }
+      function closemenu() {
+        sidemeu.style.right = "-500px";
+      }
+    </script>
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbzPcgcIS--gx5DMbV1J3-9CS3vmWb89UHhwmD1LDJofSeEXdfi8Gmi-r5LpztkWatRP/exec";
+      const form = document.forms["submit-to-google-sheet"];
+      const msg = document.getElementById("msg");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            msg.innerHTML = "Message sent successfully";
+            setTimeout(function () {
+              msg.innerHTML = "";
+            }, 5000);
+            form.reset();
+          })
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
+  </body>
+</html>
