@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      a {
+        color: rgb(183, 212, 237);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        /* background-color: rgb(33, 33, 96); */
+        /* background-color: #151719; */
+        background: linear-gradient(to bottom right, #4e4e4e 5%, #181818 60%, #000000);
+        color: white;
+        font-family: "Poppins", sans-serif;
+      }
+
+      nav {
+        width: 100%;
+        position: sticky;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 90px;
+        font-size: 20px;
+        background: linear-gradient(to right, #010a14, #052996);
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: center;
+      }
+
+      nav ul li {
+        list-style: none;
+        margin: 0 23px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+      }
+
+      nav ul li a:hover {
+        color: rgb(238, 143, 143);
+      }
+
+      .left {
+        font-size: 1.5rem;
+      }
+
+      .firstsection {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 80px 0;
+      }
+
+      .firstsection > div {
+        width: 30%;
+      }
+
+      .leftsection {
+        font-size: 2rem;
+        margin: 30px 0;
+      }
+
+      .rightsetion img {
+        width: 100%;
+        margin: 50px 0;
+        border-radius: 10px;
+        /* Add a border-radius for a rounded corner effect */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 10px 0 20px rgba(0, 0, 20, 0.9);
+        /* Add a subtle box shadow for depth */
+      }
+
+      .purple {
+        color: rgb(127, 232, 208);
+      }
+
+      #element {
+        color: lawngreen;
+      }
+
+      #about {
+        padding: 80px 0;
+        color: white;
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .about-col-1 {
+        flex-basis: 35%;
+      }
+
+      .about-col-1 img {
+        width: 70%;
+        border-radius: 15px;
+      }
+
+      .about-col-2 {
+        flex-basis: 60%;
+      }
+
+      .sub-title {
+        font-size: 35px;
+        font-weight: 600;
+        color: #fec47f;
+      }
+
+      .tab-titles {
+        display: flex;
+        margin: 20px 0 40px;
+      }
+
+      .tab-links {
+        margin-right: 50px;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .tab-links::after {
+        content: " ";
+        width: 0;
+        height: 3px;
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        transition: 0.5s;
+        background-color: rgb(255, 2, 2);
+      }
+
+      .tab-links.active-link::after {
+        width: 50%;
+      }
+
+      .tab-contents ul li {
+        list-style: none;
+        margin: 10px 0;
+      }
+
+      .tab-contents ul li span {
+        color: rgb(95, 252, 16);
+        font-size: 16px;
+      }
+
+      .tab-contents {
+        display: none;
+      }
+
+      .tab-contents.active-tab {
+        display: block;
+      }
+
+      /*-- ------------------ Projects--------->*/
+      #projects {
+        padding: 30px 0;
+        margin-left: 50px;
+        margin-right: 50px;
+        
+      }
+
+      .projects-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 40px;
+        margin-top: 50px;
+      }
+
+      .projects-list div {
+        background: rgb(219, 220, 224);
+        padding: 40px;
+        font-size: 18px;
+        font-weight: 300;
+        border-radius: 20px;
+        color: #0a0a0a;
+        transition: background 0.5s, transform 0.5s;
+        /* Fix typo in 'transform' */
+      }
+
+      .projects-list div i {
+        font-size: 50px;
+        margin-bottom: 30px;
+      }
+
+      .projects-list div h2 {
+        font-size: 30px;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+
+      .projects-list div a {
+        text-decoration: none;
+        color: rgb(38, 5, 5);
+        font-size: 17px;
+        margin-top: 20px;
+        display: inline-block;
+      }
+
+      .projects-list div:hover {
+        background: linear-gradient(to bottom right, #28a4e7 24%, #82ace4 77%, #ccd9ec);
+        transform: translateY(-10px);
+        color: white;
+      }
+
+      /*-------------Publication-----------*/
+
+      #portfolio {
+        padding: 50px 0;
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+
+      .work-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 40px;
+        margin-top: 50px;
+      }
+
+      .work {
+        border-radius: 15px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .work img {
+        width: 100%;
+        border-radius: 10px;
+        display: block;
+        transition: transform 0.5s;
+      }
+
+      .layer {
+        width: 100%;
+        height: 0;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), #ff004f);
+        border-radius: 15px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 5px;
+        text-align: center;
+        font-size: 14px;
+        transition: height 0.5s;
+      }
+
+      .layer h3 {
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+
+      .layer a {
+        margin-top: 20px;
+        color: black;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 60px;
+        background: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50px;
+        text-align: center;
+      }
+
+      .work:hover img {
+        transform: scale(1.1);
+      }
+
+      .work:hover .layer {
+        height: 100%;
+      }
+
+      .btn {
+        display: block;
+        margin: 50px auto;
+        width: fit-content;
+        border: 1px solid white;
+        padding: 14px 50px;
+        border-radius: 6px;
+        text-decoration: none;
+        color: white;
+        transition: background 0.5s;
+      }
+
+      .btn:hover {
+        background: rgb(188, 152, 221);
+        color: black;
+      }
+
+      /*---------------gallery-------------*/
+      #gallery {
+        padding: 50px 0;
+        background-color: #151719;;
+      }
+
+      .sub-title {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .gallery-group {
+        margin-bottom: 50px; /* Add some space between groups */
+      }
+
+      .description {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .description h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .description p {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .gallery-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .gallery-item {
+        width: calc(25% - 20px); /* Four columns with 20px margin between */
+        margin: 10px;
+        box-sizing: border-box;
+      }
+
+      .gallery-item img {
+        width: 100%; /* Set the width to 100% for responsiveness */
+        height: auto; /* Maintain aspect ratio */
+        max-width: 300px; /* Set maximum width */
+        max-height: 200px; /* Set maximum height */
+        border-radius: 8px;
+      }
+
+
+      a {
+            text-decoration: none;
+        }
+
+      /* Media Queries for Responsive Design */
+      @media only screen and (max-width: 767px) {
+        .gallery-item {
+          width: calc(100% - 20px); /* Full width for mobile devices */
+        }
+      }
+
+      /*---------------contact-------------*/
+      #contact {
+        margin-left: 50px;
+        margin-right: 80px;
+      }
+
+      .contact-left {
+        flex-basis: 35%;
+      }
+
+      .contact-right {
+        flex-basis: 60%;
+      }
+
+      .contact-left p {
+        margin-top: 30px;
+      }
+
+      .contact-left p i {
+        color: aliceblue;
+        margin-right: 15px;
+        font-size: 25px;
+      }
+
+      .social-icons {
+        margin-top: 30px;
+      }
+
+      .social-icons a {
+        text-decoration: none;
+        font-size: 30px;
+        margin-right: 15px;
+        color: aliceblue;
+        display: inline-block;
+        transition: transform 0.5s;
+      }
+
+      .social-icons a:hover {
+        color: aqua;
+        transform: translateY(-5px);
+      }
+
+      .btn.btn2 {
+        display: inline-block;
+        background: #0a0a0a;
+        color: white;
+      }
+
+      .contact-right form {
+        width: 100%;
+      }
+
+
+
+
+      .no-publication {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 1.1em;
+            color: white;
+        }
+
+
+
+
+
+      form input,
+      form textarea {
+        width: 100%;
+        border: 0;
+        outline: none;
+        background: #302f2f;
+        padding: 15px;
+        margin: 15px 0;
+        color: rgb(252, 252, 252);
+        font-size: 18px;
+        border-radius: 6px;
+      }
+
+      form .btn2 {
+        padding: 14px 60px;
+        font-size: 18px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+
+      .copyright {
+        width: 100%;
+        text-align: center;
+        padding: 25px;
+        background: blueviolet;
+        font-weight: 300;
+        margin-top: 20px;
+      }
+
+      .copyright i {
+        color: red;
+      }
+
+
+      .subject-list {
+    margin-bottom: 20px;
+}
+
+.subject-list a {
+    text-decoration: none; /* Remove underline from links */
+    color: #efe7e7; /* Link color */
+    display: block; /* Make the entire link area clickable */
+    padding: 10px; /* Add padding for better clickability */
+    border: 1px solid #03070b; /* Add border for distinction */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.subject-list a:hover {
+    background-color: #eee3e5; /* Light background on hover */
+    color: #0e0c0c;
+}
+
+.subject-list ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 10px 0 0 0; /* Add margin to separate from title */
+    display: none; /* Initially hide the dropdown */
+}
+
+.subject-list li {
+    margin: 5px 0; /* Space between list items */
+}
+
+.subject-list li a {
+    color: #ec9595; /* Dark color for dropdown links */
+}
+
+
+      
+
+      /*--------------------responsive(For small Screeen)---------------*/
+      nav .fa-solid {
+        display: none;
+      }
+
+      @media only screen and (max-width: 786px) {
+        nav {
+          height: auto;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        nav .fa-solid {
+          display: block;
+          font-size: 25px;
+        }
+
+        nav ul {
+          background: #400518;
+          flex-direction: column;
+          position: fixed;
+          top: 0;
+          right: -500px;
+          width: 150px;
+          height: 100vh;
+          padding-top: 50px;
+          z-index: 2;
+          transition: right 0.5s;
+        }
+
+        nav ul li {
+          display: block;
+          margin: 25px;
+        }
+
+        nav ul .fa-solid {
+          position: absolute;
+          top: 25px;
+          left: 25px;
+          cursor: pointer;
+        }
+
+        .firstsection {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .firstsection > div {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+
+        .rightsetion img {
+          margin: 20px 0;
+        }
+
+        #about,
+        #projects,
+        #portfolio,
+        #contact {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+
+        .about-col-1 img {
+          width: 100%;
+        }
+
+        .tab-titles {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .tab-links {
+          margin: 10px 0;
+        }
+
+        .tab-contents ul li {
+          text-align: center;
+        }
+
+        .sub-title {
+          font-size: 20px;
+        }
+
+        .about-col-1,
+        .about-col-2 {
+          flex-basis: 100%;
+        }
+
+        .about-col-1 {
+          margin-bottom: 30px;
+        }
+
+        .contact-left,
+        .contact-right {
+          flex-basis: 100%;
+        }
+
+        .copyright {
+          font-size: 14px;
+        }
+
+
+
+
+        
+      }
+
+      #msg {
+        color: rgb(48, 243, 5);
+        margin-top: -40px;
+        display: block;
+      }
+
+      .more-text {
+        display: none;
+      }
+      .show-more {
+        color: rgb(229, 95, 140);
+        cursor: pointer;
+        font-weight: bold; /* Makes the text bold */
+      }
+      .accuracy {
+        color: #47494b;
+        font-weight: bold;
+      }
+    </style>
+
+    <script
+      src="https://kit.fontawesome.com/93f7569c65.js"
+      crossorigin="anonymous"
+    ></script>
+</head>
+<body>
+    <header>
+        <div id="header">
+          <nav>
+            <div class="left">Ayantanu</div>
+            <div class="right"></div>
+            <ul id="sidemenu">
+              <li><a href="./index.html">Home</a></li>
+              
+              <li><a href="./references.html">Study References</a></li>
+              <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+          </nav>
+        </div>
+      </header>
+
+
+      
+      <div id="projects">
+        <div class="container">
+            <h1 class="sub-title">These are the references I used during my college studies. You can explore them for a deeper understanding.</h1>
+    
+            <!-- Subject List -->
+            <div class="subject-list">
+              <a href="#data-structure-algorithms" class="toggle">Select Subject (Tap to Select) ↓</a>
+              <ul class="hidden">
+                  <li><a href="#data-structure-algorithms">Data Structure and Algorithms</a></li>
+                  <li><a href="#linear-algebra">Linear Algebra</a></li>
+                  <li><a href="#probability-theory">Probability Theory</a></li>
+                  <li><a href="#theory-of-computation">Theory of Computation</a></li>
+                  <li><a href="#graph-theory">Graph Theory</a></li>
+                  <li><a href="#machine-learning">Machine Learning</a></li>
+              </ul>
+          </div>
+          
+    
+          <h4 style="color: red;">Little Reminder:</h4>
+            <h5>To excel in Machine Learning and NLP, it's essential to continuously update and expand your knowledge as these fields evolve rapidly.</h5>
+    
+            <div class="projects-list" id="data-structure-algorithms">
+                <div>
+                    <i class="fa-solid fa-book"></i>
+                    <h2>Data Structure and Algorithms</h2>
+                    <br />
+                    <p>
+                        <ul>
+                            <li>
+                                <b><a href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank">Introduction to Algorithms, fourth edition</a></b> by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein.
+                            </li>
+                            <li>
+                                <b><a href="https://mitpress.mit.edu/9780262028189/introduction-to-machine-learning/" target="_blank">Algorithm Design</a></b> by Jon Kleinberg and Eva Tardos.
+                            </li>
+                            <li>
+                                <b><a href="https://www.youtube.com/playlist?list=PLyqSpQzTE6M9DKhN7z2fOpKTJWu-639_P" target="_blank">NPTEL: Design and Analysis of Algorithms</a></b> by <a href="https://www.cmi.ac.in/~madhavan/" target="_blank">Madhavan Mukund</a> – An NPTEL YouTube course covering algorithm fundamentals.
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+    
+            <div class="projects-list" id="linear-algebra">
+                <div>
+                    <i class="fa-solid fa-book"></i>
+                    <h2>Linear Algebra</h2>
+                    <br />
+                    <p>
+                        <ul>
+                            <li>
+                                <b><a href="https://linear.axler.net/" target="_blank">Linear Algebra Done Right</a></b> by Sheldon Axler – This best-selling textbook for a second course in linear algebra is aimed at undergraduate math majors and graduate students.
+                            </li>
+                            <li>
+                                <b><a href="https://www.google.com/search?q=linear+algebra+gilbert+strang+notes" target="_blank">Lecture Notes for Linear Algebra</a></b> by Gilbert Strang – A foundational textbook for linear algebra concepts.
+                            </li>
+                            <li>
+                                <b><a href="https://www.youtube.com/playlist?list=PL7oBzLzHZ1wXQvQ938Wg1-soq09GywgOw" target="_blank">NPTEL: Linear Algebra</a></b> by <a href="https://sites.google.com/view/pranavharidas/home" target="_blank">Pranav Haridas</a> – An NPTEL YouTube course covering linear algebra.
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+    
+            <div class="projects-list" id="probability-theory">
+                <div>
+                    <i class="fa-solid fa-book"></i>
+                    <h2>Probability Theory</h2>
+                    <br />
+                    <p>
+                        <ul>
+                            <li>
+                                <b><a href="https://linear.axler.net/" target="_blank">A First Course in Probability</a></b> by Sheldon M. Ross – A foundational textbook for probability concepts.
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+    
+            <div class="projects-list" id="theory-of-computation">
+                <div>
+                    <i class="fa-solid fa-book"></i>
+                    <h2>Theory of Computation</h2>
+                    <br />
+                    <p>
+                        <ul>
+                            <li>
+                                <b><a href="https://fuuu.be/polytech/INFOF408/Introduction-To-The-Theory-Of-Computation-Michael-Sipser.pdf" target="_blank">Introduction to the Theory of Computation</a></b> by Michael Sipser – An upper-level undergraduate or introductory graduate text in computer science theory.
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+    
+            <div class="projects-list" id="graph-theory">
+                <div>
+                    <i class="fa-solid fa-book"></i>
+                    <h2>Graph Theory</h2>
+                    <br />
+                    <p>
+                        <ul>
+                            <li>
+                                <b><a href="https://www.phindia.com/Books/BookDetail/9788120301450/graph-theory-with-applications-to-engineering-and-computer" target="_blank">Graph Theory with Applications to Engineering and Computer Science</a></b> by Narsingh Deo – A fundamental book that covers an easy explanation of graph theory.
+                            </li>
+                            <li>
+                                <b><a href="https://dwest.web.illinois.edu/" target="_blank">Introduction to Graph Theory</a></b> by Douglas West – A thorough understanding of the structure of graphs and the techniques used to analyze problems in graph theory.
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+    
+            <br>
+    
+            
+            <div class="projects-list" id="machine-learning">
+                <div>
+                    <i class="fa-solid fa-book"></i>
+                    <h2>Machine Learning</h2>
+                    <br />
+                    <p>
+                        <ul>
+                            <li>
+                                <b><a href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/" target="_blank">Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, 2nd Edition</a></b> by Aurélien Géron – A practical book that uses Python for hands-on learning of ML techniques.
+                            </li>
+                            <li>
+                                <b><a href="https://mitpress.mit.edu/9780262028189/introduction-to-machine-learning/" target="_blank">Introduction to Machine Learning, Third Edition</a></b> by Ethem Alpaydın – A foundational textbook for ML concepts.
+                            </li>
+                            <li>
+                                <b><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rNH7qL6-efu_q2_bPuy0adh" target="_blank">Stanford CS229: Machine Learning</a></b> by <a href="https://avati.github.io/" target="_blank">Anand Avati</a> – A Stanford YouTube course covering ML fundamentals and applications.
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+<script>
+    var sidemeu = document.getElementById("sidemenu");
+    function openmenu() {
+      sidemeu.style.right = "0";
+    }
+    function closemenu() {
+      sidemeu.style.right = "-500px";
+    }
+  </script>
+
+<script>
+  function toggleText() {
+    const moreText = document.querySelector(".more-text");
+    const showMore = document.querySelector(".show-more");
+    if (moreText.style.display === "none") {
+      moreText.style.display = "inline";
+      showMore.textContent = "Show Less";
+    } else {
+      moreText.style.display = "none";
+      showMore.textContent = "Show More";
+    }
+  }
+</script>
+
+<script>
+  document.querySelectorAll('.subject-list .toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default anchor behavior
+        const dropdown = this.nextElementSibling; // Get the next <ul> element
+        
+        // Toggle display of the dropdown
+        if (dropdown.style.display === "block") {
+            dropdown.style.display = "none"; // Hide the dropdown
+        } else {
+            dropdown.style.display = "block"; // Show the dropdown
+        }
+    });
+});
+
+</script>
+
+</html>
