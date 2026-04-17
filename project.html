@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projects — Ayantanu Laha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/93f7569c65.js" crossorigin="anonymous"></script>
+<style>
+  :root{--transition:0.3s cubic-bezier(0.4,0,0.2,1)}
+  [data-theme="dark"]{--bg:#080a0f;--surface:#111318;--surface2:#181c24;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);--text:#e6e8f0;--text2:#9aa0b4;--text3:#5c6380;--accent:#64ffda;--accent-dim:rgba(100,255,218,0.08);--accent-border:rgba(100,255,218,0.22);--purple:#a78bfa;--purple-dim:rgba(167,139,250,0.1);--orange:#fb923c;--orange-dim:rgba(251,146,60,0.1);--green:#4ade80;--red:#f87171;--shadow:0 24px 64px rgba(0,0,0,0.7);--nav-bg:rgba(8,10,15,0.85);--toggle-bg:#1e2330;--toggle-knob:#64ffda;--hero-grad:radial-gradient(ellipse 70% 60% at 50% -10%,rgba(100,255,218,0.07) 0%,transparent 60%)}
+  [data-theme="light"]{--bg:#f8f9fc;--surface:#fff;--surface2:#f3f5fb;--border:rgba(0,0,0,0.07);--border2:rgba(0,0,0,0.13);--text:#0d1117;--text2:#4b5270;--text3:#8b91aa;--accent:#0a8f6e;--accent-dim:rgba(10,143,110,0.08);--accent-border:rgba(10,143,110,0.25);--purple:#6d4fc7;--purple-dim:rgba(109,79,199,0.1);--orange:#c2610c;--orange-dim:rgba(194,97,12,0.09);--green:#15803d;--red:#dc2626;--shadow:0 24px 64px rgba(0,0,0,0.1);--nav-bg:rgba(248,249,252,0.92);--toggle-bg:#e2e6f0;--toggle-knob:#0a8f6e;--hero-grad:radial-gradient(ellipse 70% 60% at 50% -10%,rgba(10,143,110,0.06) 0%,transparent 60%)}
+
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Geist',sans-serif;line-height:1.6;overflow-x:hidden;transition:background var(--transition),color var(--transition)}
+  ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:99px}
+  ::selection{background:var(--accent-dim);color:var(--accent)}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:60px;background:var(--nav-bg);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border);transition:background var(--transition)}
+  .nav-logo{font-family:'Instrument Serif',serif;font-size:1.4rem;color:var(--text);letter-spacing:-0.5px;text-decoration:none}
+  .nav-logo span{color:var(--accent)}
+  .nav-links{display:flex;align-items:center;gap:4px;background:var(--surface2);border:1px solid var(--border);border-radius:99px;padding:4px 6px}
+  .nav-link{font-family:'Geist Mono',monospace;font-size:0.72rem;color:var(--text2);text-decoration:none;padding:6px 14px;border-radius:99px;letter-spacing:0.3px;transition:all 0.2s}
+  .nav-link:hover,.nav-link.active{background:var(--surface);color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,.15)}
+  .nav-right{display:flex;align-items:center;gap:12px}
+  .theme-toggle{width:46px;height:26px;background:var(--toggle-bg);border-radius:99px;border:1px solid var(--border2);cursor:pointer;position:relative;transition:background 0.3s;flex-shrink:0}
+  .theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;background:var(--toggle-knob);border-radius:50%;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1)}
+  [data-theme="light"] .theme-toggle::after{transform:translateX(20px)}
+  .tog-icon{position:absolute;top:50%;font-size:9px;transform:translateY(-50%);pointer-events:none;transition:opacity 0.2s}
+  .tog-icon.moon{right:5px}.tog-icon.sun{left:5px}
+  [data-theme="dark"] .tog-icon.sun{opacity:0}[data-theme="dark"] .tog-icon.moon{opacity:1}
+  [data-theme="light"] .tog-icon.sun{opacity:1}[data-theme="light"] .tog-icon.moon{opacity:0}
+  .nav-ham{display:none;background:none;border:none;color:var(--text);font-size:1.2rem;cursor:pointer;padding:8px}
+  .mob-menu{display:none;position:fixed;inset:0;z-index:190;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;gap:20px}
+  .mob-menu.open{display:flex}
+  .mob-menu .nav-link{font-size:1.5rem;font-family:'Instrument Serif',serif;padding:8px 24px;letter-spacing:0}
+  .mob-close{position:absolute;top:20px;right:24px;font-size:1.4rem;cursor:pointer;color:var(--text2);background:none;border:none}
+
+  /* PAGE HEADER */
+  .page-header{background:var(--hero-grad);padding:80px 48px 56px;text-align:center;border-bottom:1px solid var(--border)}
+  .page-header .breadcrumb{font-family:'Geist Mono',monospace;font-size:0.72rem;color:var(--text3);margin-bottom:16px}
+  .page-header .breadcrumb a{color:var(--accent);text-decoration:none}
+  .page-header h1{font-family:'Instrument Serif',serif;font-size:clamp(2.4rem,5vw,4rem);letter-spacing:-1.5px;color:var(--text);line-height:1.05}
+  .page-header h1 em{font-style:italic;color:var(--accent)}
+  .page-header p{font-size:1rem;color:var(--text2);margin-top:14px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.7}
+
+  /* MAIN */
+  .main{max-width:1120px;margin:0 auto;padding:80px 48px}
+
+  /* CATEGORY HEADER */
+  .cat-header{display:flex;align-items:center;gap:14px;margin-bottom:28px;margin-top:56px}
+  .cat-header:first-child{margin-top:0}
+  .cat-icon{width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:8px;font-size:1rem;color:var(--accent)}
+  .cat-title{font-family:'Instrument Serif',serif;font-size:1.6rem;color:var(--text);letter-spacing:-0.5px}
+  .cat-count{font-family:'Geist Mono',monospace;font-size:0.72rem;color:var(--text3);background:var(--surface2);border:1px solid var(--border);border-radius:99px;padding:3px 10px}
+
+  /* PROJECT GRID */
+  .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px;margin-bottom:8px}
+
+  /* PROJECT CARD */
+  .proj-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px}
+  .proj-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--accent),var(--purple));opacity:0;transition:opacity 0.3s}
+  .proj-card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.15)}
+  .proj-card:hover::after{opacity:1}
+  .proj-icon{font-size:1.8rem}
+  .proj-category-badge{font-family:'Geist Mono',monospace;font-size:0.65rem;letter-spacing:1px;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid var(--accent-border);padding:2px 9px;border-radius:4px;width:fit-content}
+  .proj-title{font-weight:600;font-size:1rem;color:var(--text);line-height:1.4}
+  .proj-desc{font-size:0.85rem;color:var(--text2);line-height:1.7;flex:1}
+  .proj-desc ul{padding-left:16px;margin-top:8px;display:flex;flex-direction:column;gap:4px}
+  .proj-desc ul li{font-size:0.82rem;color:var(--text2)}
+  .proj-desc strong{color:var(--text);font-weight:600}
+  .proj-meta{font-size:0.78rem;color:var(--text3);font-family:'Geist Mono',monospace}
+  .proj-meta a{color:var(--purple);text-decoration:none}.proj-meta a:hover{text-decoration:underline}
+  .proj-tags{display:flex;flex-wrap:wrap;gap:5px}
+  .proj-tag{font-family:'Geist Mono',monospace;font-size:0.68rem;color:var(--purple);background:var(--purple-dim);border:1px solid rgba(167,139,250,0.15);padding:2px 9px;border-radius:4px}
+  .proj-footer{display:flex;align-items:center;justify-content:space-between;padding-top:4px;margin-top:auto}
+  .proj-link{font-size:0.78rem;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-family:'Geist Mono',monospace;transition:gap 0.2s}
+  .proj-link:hover{gap:10px}
+  .proj-gh{width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:var(--surface2);border:1px solid var(--border);border-radius:7px;color:var(--text2);text-decoration:none;font-size:1rem;transition:all 0.2s}
+  .proj-gh:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* ACCURACY badge */
+  .acc{color:var(--green);font-weight:600;font-family:'Geist Mono',monospace;font-size:0.82rem}
+
+  /* SHOW MORE */
+  .show-more-btn{font-family:'Geist Mono',monospace;font-size:0.75rem;color:var(--accent);cursor:pointer;background:none;border:none;padding:0;text-decoration:underline}
+  .more-text{display:none}
+  .more-text.open{display:inline}
+
+  /* DIVIDER */
+  .section-divider{width:100%;height:1px;background:var(--border);margin:24px 0}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--border);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;font-size:0.8rem;color:var(--text3);font-family:'Geist Mono',monospace}
+  footer a{color:var(--purple);text-decoration:none}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+  .reveal.visible{opacity:1;transform:none}
+
+  /* RESPONSIVE */
+  @media(max-width:860px){
+    nav{padding:0 24px}.nav-links{display:none}.nav-ham{display:block}
+    .page-header{padding:60px 24px 40px}
+    .main{padding:48px 24px}
+    footer{flex-direction:column;gap:8px;text-align:center;padding:24px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="./index.html">Ayantanu<span>.</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="./index.html">Home</a>
+    <a class="nav-link active" href="./project.html">Projects</a>
+    <a class="nav-link" href="./references.html">References</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span class="tog-icon sun">☀️</span>
+      <span class="tog-icon moon">🌙</span>
+    </button>
+    <button class="nav-ham" onclick="document.getElementById('mobMenu').classList.add('open')"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" onclick="document.getElementById('mobMenu').classList.remove('open')"><i class="fa-solid fa-xmark"></i></button>
+  <a class="nav-link" href="./index.html" onclick="document.getElementById('mobMenu').classList.remove('open')">Home</a>
+  <a class="nav-link" href="./project.html" onclick="document.getElementById('mobMenu').classList.remove('open')">Projects</a>
+  <a class="nav-link" href="./references.html" onclick="document.getElementById('mobMenu').classList.remove('open')">References</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <p class="breadcrumb"><a href="./index.html">Home</a> / Projects</p>
+  <h1>All <em>Projects</em></h1>
+  <p>A collection of machine learning, NLP, and web development projects built across academia and industry.</p>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- ML Projects -->
+  <div class="cat-header reveal">
+    <div class="cat-icon"><i class="fa-solid fa-brain"></i></div>
+    <h2 class="cat-title">Machine Learning</h2>
+    <span class="cat-count">4 projects</span>
+  </div>
+
+  <div class="proj-grid reveal">
+    <!-- Card 1 -->
+    <div class="proj-card">
+      <div class="proj-icon">🫀</div>
+      <span class="proj-category-badge">ML · Research</span>
+      <p class="proj-title">Ensemble Learning for Cardiology Prediction</p>
+      <div class="proj-desc">
+        <p>Used 4 stacking classifiers combined with <strong>majority voting</strong> as the meta-classifier across 4 cardiology datasets.</p>
+        <div class="more-text" id="moreCard">
+          <ul>
+            <li>Dataset 1: <span class="acc">90.58%</span> validation accuracy</li>
+            <li>Dataset 2: <span class="acc">98.78%</span></li>
+            <li>Dataset 3: <span class="acc">97.50%</span></li>
+            <li>Dataset 4: <span class="acc">73.64%</span></li>
+          </ul>
+        </div>
+        <button class="show-more-btn" onclick="toggleMore('moreCard',this)">Show more ↓</button>
+      </div>
+      <p class="proj-meta">Supervisor: <a href="https://www.isical.ac.in/~soumitra_r/" target="_blank">Dr. Soumitra Samanta</a></p>
+      <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Scikit-learn</span><span class="proj-tag">Ensemble</span></div>
+      <div class="proj-footer">
+        <a href="https://github.com/Ayantanu2002/Basic-Ensemble-Model-Code" target="_blank" class="proj-gh" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="proj-card">
+      <div class="proj-icon">🎬</div>
+      <span class="proj-category-badge">ML · Recommender</span>
+      <p class="proj-title">Movie Recommendation System</p>
+      <div class="proj-desc">
+        <p>Interactive movie recommender built with <strong>Streamlit</strong>. Suggests films based on user preferences using collaborative filtering and OpenAI embeddings.</p>
+        <p style="margin-top:8px">Stack: <strong>Streamlit · Pandas · NumPy · OpenAI</strong></p>
+      </div>
+      <div class="proj-tags"><span class="proj-tag">Streamlit</span><span class="proj-tag">Python</span><span class="proj-tag">OpenAI</span></div>
+      <div class="proj-footer">
+        <a href="https://github.com/Ayantanu2002/Movie-Recomendation-system-Using-Streamlit" target="_blank" class="proj-gh" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="proj-card">
+      <div class="proj-icon">🛰️</div>
+      <span class="proj-category-badge">ML · Computer Vision</span>
+      <p class="proj-title">River vs Non-River Classification</p>
+      <div class="proj-desc">
+        <p>Satellite image classification using a <strong>Gaussian Naive Bayes</strong> classifier built from scratch. Achieved <span class="acc">98.50%</span> accuracy.</p>
+        <p style="margin-top:8px">Dataset sourced from <a href="https://www.isical.ac.in/~murthy/" target="_blank" style="color:var(--purple)">ISI Kolkata</a>.</p>
+      </div>
+      <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Naive Bayes</span><span class="proj-tag">NumPy</span></div>
+      <div class="proj-footer">
+        <a href="https://github.com/Ayantanu2002/River-NonRiver-classification-BandImage-using-Gaussian-Naive-Bayes-from-Scratch" target="_blank" class="proj-gh" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="proj-card">
+      <div class="proj-icon">🩺</div>
+      <span class="proj-category-badge">ML · Healthcare</span>
+      <p class="proj-title">Breast Cancer Prediction App</p>
+      <div class="proj-desc">
+        <p>Streamlit app that predicts tumor type (benign/malignant) using <strong>Logistic Regression</strong> on the Breast Cancer Wisconsin dataset.</p>
+        <ul>
+          <li>Input sliders for cell nuclei measurements</li>
+          <li>Radar chart visualisation of features</li>
+          <li>Real-time classification result</li>
+        </ul>
+      </div>
+      <div class="proj-tags"><span class="proj-tag">Streamlit</span><span class="proj-tag">Logistic Regression</span><span class="proj-tag">Plotly</span></div>
+      <div class="proj-footer">
+        <a href="https://github.com/Ayantanu2002/streamlit-cancer-predict" target="_blank" class="proj-gh" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- NLP Projects -->
+  <div class="cat-header reveal">
+    <div class="cat-icon"><i class="fa-solid fa-comments"></i></div>
+    <h2 class="cat-title">NLP &amp; LLM</h2>
+    <span class="cat-count">2 projects</span>
+  </div>
+
+  <div class="proj-grid reveal">
+    <!-- Card 5 -->
+    <div class="proj-card">
+      <div class="proj-icon">🤖</div>
+      <span class="proj-category-badge">LLM · RAG</span>
+      <p class="proj-title">PDF Chatbot with Q&amp;A Capabilities</p>
+      <div class="proj-desc">
+        <p>Accepts multiple PDFs and answers questions based on their content. Stores chat history in <strong>MySQL</strong>.</p>
+        <p style="margin-top:8px">Built with <strong>Llama 2 · React · Flask · MySQL</strong></p>
+      </div>
+      <div class="proj-tags"><span class="proj-tag">Llama 2</span><span class="proj-tag">React</span><span class="proj-tag">Flask</span><span class="proj-tag">MySQL</span></div>
+      <div class="proj-footer">
+        <a href="https://github.com/Ayantanu2002/ConversationalPDF-using-llama-2" target="_blank" class="proj-gh" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="proj-card">
+      <div class="proj-icon">🌐</div>
+      <span class="proj-category-badge">NLP · Cross-lingual</span>
+      <p class="proj-title">RAG-Enhanced Cross-Lingual IR</p>
+      <div class="proj-desc">
+        <p>Aligns English and Bengali for cross-lingual information retrieval using a <strong>RAG framework</strong> with transformation-based alignment — no direct translation.</p>
+        <ul>
+          <li>Paragraph-based vs. sentence-based alignment comparison</li>
+          <li>Preserves contextual coherence across languages</li>
+        </ul>
+      </div>
+      <p class="proj-meta">Supervisor: <a href="https://cs.rkmvu.ac.in/~tamal/" target="_blank">Br. Bhaswarachaitanya (Tamal Maharaj)</a></p>
+      <div class="proj-tags"><span class="proj-tag">RAG</span><span class="proj-tag">NLP</span><span class="proj-tag">Bengali</span><span class="proj-tag">FAISS</span></div>
+      <div class="proj-footer">
+        <a href="https://github.com/Ayantanu2002/RAG-Enhanced-Cross-Lingual-Information-Retrieval-Bridging-Query-Gaps-Through-Bilingual-Alignment" target="_blank" class="proj-gh" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Web Dev Projects -->
+  <div class="cat-header reveal">
+    <div class="cat-icon"><i class="fa-brands fa-html5"></i></div>
+    <h2 class="cat-title">Web Development</h2>
+    <span class="cat-count">2 projects</span>
+  </div>
+
+  <div class="proj-grid reveal">
+    <!-- Card 7 -->
+    <div class="proj-card">
+      <div class="proj-icon">📰</div>
+      <span class="proj-category-badge">Web · Frontend</span>
+      <p class="proj-title">News App</p>
+      <div class="proj-desc">
+        <p>A frontend news platform for browsing topics like IPL, Finance, Politics, Earth, and Travel. Includes a search bar for articles.</p>
+        <p style="margin-top:8px">Built with pure <strong>HTML · CSS · JavaScript</strong></p>
+      </div>
+      <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div>
+      <div class="proj-footer">
+        <a href="https://github.com/Ayantanu2002/News-App" target="_blank" class="proj-gh" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="proj-card">
+      <div class="proj-icon">🧑‍💻</div>
+      <span class="proj-category-badge">Web · Portfolio</span>
+      <p class="proj-title">This Portfolio Website</p>
+      <div class="proj-desc">
+        <p>Personal portfolio built from scratch with <strong>HTML, CSS &amp; JS</strong>. Features dark/light theme toggle, scroll animations, a contact form, and responsive layout.</p>
+      </div>
+      <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div>
+      <div class="proj-footer">
+        <a href="https://github.com/Ayantanu2002/resume" target="_blank" class="proj-gh" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span>© 2025 Ayantanu Laha</span>
+  <span><a href="./index.html">Home</a> · <a href="./references.html">References</a> · <a href="Ayantanu_Laha_CV.pdf" target="_blank">Resume</a></span>
+</footer>
+
+<script>
+  // Theme
+  const root=document.documentElement;
+  const saved=localStorage.getItem('al-theme')||'dark';
+  root.setAttribute('data-theme',saved);
+  document.getElementById('themeToggle').addEventListener('click',()=>{
+    const next=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    localStorage.setItem('al-theme',next);
+  });
+
+  // Reveal
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.06});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  // Show more
+  function toggleMore(id,btn){
+    const el=document.getElementById(id);
+    const open=el.classList.toggle('open');
+    btn.textContent=open?'Show less ↑':'Show more ↓';
+  }
+</script>
+</body>
+</html>

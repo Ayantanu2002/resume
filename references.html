@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Study References — Ayantanu Laha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/93f7569c65.js" crossorigin="anonymous"></script>
+<style>
+  :root{--transition:0.3s cubic-bezier(0.4,0,0.2,1)}
+  [data-theme="dark"]{--bg:#080a0f;--surface:#111318;--surface2:#181c24;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);--text:#e6e8f0;--text2:#9aa0b4;--text3:#5c6380;--accent:#64ffda;--accent-dim:rgba(100,255,218,0.08);--accent-border:rgba(100,255,218,0.22);--purple:#a78bfa;--purple-dim:rgba(167,139,250,0.1);--orange:#fb923c;--orange-dim:rgba(251,146,60,0.1);--green:#4ade80;--red:#f87171;--shadow:0 24px 64px rgba(0,0,0,0.7);--nav-bg:rgba(8,10,15,0.85);--toggle-bg:#1e2330;--toggle-knob:#64ffda;--hero-grad:radial-gradient(ellipse 70% 60% at 50% -10%,rgba(100,255,218,0.07) 0%,transparent 60%)}
+  [data-theme="light"]{--bg:#f8f9fc;--surface:#fff;--surface2:#f3f5fb;--border:rgba(0,0,0,0.07);--border2:rgba(0,0,0,0.13);--text:#0d1117;--text2:#4b5270;--text3:#8b91aa;--accent:#0a8f6e;--accent-dim:rgba(10,143,110,0.08);--accent-border:rgba(10,143,110,0.25);--purple:#6d4fc7;--purple-dim:rgba(109,79,199,0.1);--orange:#c2610c;--orange-dim:rgba(194,97,12,0.09);--green:#15803d;--red:#dc2626;--shadow:0 24px 64px rgba(0,0,0,0.1);--nav-bg:rgba(248,249,252,0.92);--toggle-bg:#e2e6f0;--toggle-knob:#0a8f6e;--hero-grad:radial-gradient(ellipse 70% 60% at 50% -10%,rgba(10,143,110,0.06) 0%,transparent 60%)}
+
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Geist',sans-serif;line-height:1.6;overflow-x:hidden;transition:background var(--transition),color var(--transition)}
+  ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:99px}
+  ::selection{background:var(--accent-dim);color:var(--accent)}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:60px;background:var(--nav-bg);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border);transition:background var(--transition)}
+  .nav-logo{font-family:'Instrument Serif',serif;font-size:1.4rem;color:var(--text);letter-spacing:-0.5px;text-decoration:none}
+  .nav-logo span{color:var(--accent)}
+  .nav-links{display:flex;align-items:center;gap:4px;background:var(--surface2);border:1px solid var(--border);border-radius:99px;padding:4px 6px}
+  .nav-link{font-family:'Geist Mono',monospace;font-size:0.72rem;color:var(--text2);text-decoration:none;padding:6px 14px;border-radius:99px;letter-spacing:0.3px;transition:all 0.2s}
+  .nav-link:hover,.nav-link.active{background:var(--surface);color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,.15)}
+  .nav-right{display:flex;align-items:center;gap:12px}
+  .theme-toggle{width:46px;height:26px;background:var(--toggle-bg);border-radius:99px;border:1px solid var(--border2);cursor:pointer;position:relative;transition:background 0.3s;flex-shrink:0}
+  .theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;background:var(--toggle-knob);border-radius:50%;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1)}
+  [data-theme="light"] .theme-toggle::after{transform:translateX(20px)}
+  .tog-icon{position:absolute;top:50%;font-size:9px;transform:translateY(-50%);pointer-events:none;transition:opacity 0.2s}
+  .tog-icon.moon{right:5px}.tog-icon.sun{left:5px}
+  [data-theme="dark"] .tog-icon.sun{opacity:0}[data-theme="dark"] .tog-icon.moon{opacity:1}
+  [data-theme="light"] .tog-icon.sun{opacity:1}[data-theme="light"] .tog-icon.moon{opacity:0}
+  .nav-ham{display:none;background:none;border:none;color:var(--text);font-size:1.2rem;cursor:pointer;padding:8px}
+  .mob-menu{display:none;position:fixed;inset:0;z-index:190;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;gap:20px}
+  .mob-menu.open{display:flex}
+  .mob-menu .nav-link{font-size:1.5rem;font-family:'Instrument Serif',serif;padding:8px 24px;letter-spacing:0}
+  .mob-close{position:absolute;top:20px;right:24px;font-size:1.4rem;cursor:pointer;color:var(--text2);background:none;border:none}
+
+  /* PAGE HEADER */
+  .page-header{background:var(--hero-grad);padding:80px 48px 56px;text-align:center;border-bottom:1px solid var(--border)}
+  .page-header .breadcrumb{font-family:'Geist Mono',monospace;font-size:0.72rem;color:var(--text3);margin-bottom:16px}
+  .page-header .breadcrumb a{color:var(--accent);text-decoration:none}
+  .page-header h1{font-family:'Instrument Serif',serif;font-size:clamp(2.4rem,5vw,4rem);letter-spacing:-1.5px;color:var(--text);line-height:1.05}
+  .page-header h1 em{font-style:italic;color:var(--accent)}
+  .page-header p{font-size:1rem;color:var(--text2);margin-top:14px;max-width:580px;margin-left:auto;margin-right:auto;line-height:1.7}
+
+  /* REMINDER BANNER */
+  .reminder{max-width:1120px;margin:40px auto 0;padding:0 48px}
+  .reminder-box{background:var(--orange-dim);border:1px solid rgba(251,146,60,0.2);border-radius:10px;padding:14px 20px;display:flex;align-items:flex-start;gap:14px}
+  .reminder-box .icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+  .reminder-box p{font-size:0.88rem;color:var(--text2);line-height:1.6}
+  .reminder-box strong{color:var(--orange)}
+
+  /* SUBJECT NAV */
+  .subject-nav{max-width:1120px;margin:32px auto 0;padding:0 48px}
+  .subject-nav-inner{display:flex;flex-wrap:wrap;gap:8px}
+  .subject-pill{font-family:'Geist Mono',monospace;font-size:0.72rem;color:var(--text2);background:var(--surface2);border:1px solid var(--border);border-radius:99px;padding:6px 16px;text-decoration:none;transition:all 0.2s;letter-spacing:0.3px}
+  .subject-pill:hover{background:var(--accent-dim);border-color:var(--accent-border);color:var(--accent)}
+
+  /* MAIN */
+  .main{max-width:1120px;margin:0 auto;padding:60px 48px 80px}
+
+  /* SUBJECT SECTION */
+  .subject-section{margin-bottom:56px}
+  .subject-header{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+  .subject-icon{width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:8px;font-size:1rem;color:var(--accent)}
+  .subject-title{font-family:'Instrument Serif',serif;font-size:1.6rem;color:var(--text);letter-spacing:-0.5px}
+
+  /* REF GRID */
+  .ref-grid{display:flex;flex-direction:column;gap:12px}
+
+  /* REF CARD */
+  .ref-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:18px;transition:border-color 0.2s,transform 0.2s}
+  .ref-card:hover{border-color:var(--border2);transform:translateX(3px)}
+  .ref-num{font-family:'Geist Mono',monospace;font-size:0.7rem;color:var(--text3);width:24px;flex-shrink:0;margin-top:3px}
+  .ref-body{flex:1}
+  .ref-title{font-weight:600;font-size:0.95rem;color:var(--text);margin-bottom:4px;line-height:1.4}
+  .ref-title a{color:var(--accent);text-decoration:none}.ref-title a:hover{text-decoration:underline}
+  .ref-author{font-size:0.82rem;color:var(--text2);margin-bottom:6px}
+  .ref-desc{font-size:0.82rem;color:var(--text3);line-height:1.6}
+  .ref-type{font-family:'Geist Mono',monospace;font-size:0.65rem;letter-spacing:0.5px;padding:2px 8px;border-radius:4px;margin-left:8px;vertical-align:middle}
+  .ref-type.book{background:var(--purple-dim);color:var(--purple);border:1px solid rgba(167,139,250,0.15)}
+  .ref-type.video{background:var(--orange-dim);color:var(--orange);border:1px solid rgba(251,146,60,0.15)}
+  .ref-type.course{background:var(--accent-dim);color:var(--accent);border:1px solid var(--accent-border)}
+
+  /* DIVIDER */
+  .divider{width:100%;height:1px;background:var(--border);margin-bottom:56px}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--border);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;font-size:0.8rem;color:var(--text3);font-family:'Geist Mono',monospace}
+  footer a{color:var(--purple);text-decoration:none}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+  .reveal.visible{opacity:1;transform:none}
+
+  /* RESPONSIVE */
+  @media(max-width:860px){
+    nav{padding:0 24px}.nav-links{display:none}.nav-ham{display:block}
+    .page-header{padding:60px 24px 40px}
+    .reminder,.subject-nav,.main{padding-left:24px;padding-right:24px}
+    footer{flex-direction:column;gap:8px;text-align:center;padding:24px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="./index.html">Ayantanu<span>.</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="./index.html">Home</a>
+    <a class="nav-link" href="./project.html">Projects</a>
+    <a class="nav-link active" href="./references.html">References</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span class="tog-icon sun">☀️</span>
+      <span class="tog-icon moon">🌙</span>
+    </button>
+    <button class="nav-ham" onclick="document.getElementById('mobMenu').classList.add('open')"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" onclick="document.getElementById('mobMenu').classList.remove('open')"><i class="fa-solid fa-xmark"></i></button>
+  <a class="nav-link" href="./index.html" onclick="document.getElementById('mobMenu').classList.remove('open')">Home</a>
+  <a class="nav-link" href="./project.html" onclick="document.getElementById('mobMenu').classList.remove('open')">Projects</a>
+  <a class="nav-link" href="./references.html" onclick="document.getElementById('mobMenu').classList.remove('open')">References</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <p class="breadcrumb"><a href="./index.html">Home</a> / References</p>
+  <h1>Study <em>References</em></h1>
+  <p>The books, courses, and resources I used during my college studies. Curated for anyone wanting a deeper understanding of CS fundamentals and ML.</p>
+</div>
+
+<!-- REMINDER -->
+<div class="reminder">
+  <div class="reminder-box">
+    <span class="icon">💡</span>
+    <p><strong>Little reminder:</strong> To excel in Machine Learning and NLP, it's essential to continuously update and expand your knowledge as these fields evolve rapidly. These resources are a strong foundation — but keep exploring.</p>
+  </div>
+</div>
+
+<!-- SUBJECT NAV -->
+<div class="subject-nav">
+  <div class="subject-nav-inner">
+    <a class="subject-pill" href="#dsa">Data Structures &amp; Algorithms</a>
+    <a class="subject-pill" href="#linear-algebra">Linear Algebra</a>
+    <a class="subject-pill" href="#probability">Probability Theory</a>
+    <a class="subject-pill" href="#toc">Theory of Computation</a>
+    <a class="subject-pill" href="#graph">Graph Theory</a>
+    <a class="subject-pill" href="#ml">Machine Learning</a>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- DSA -->
+  <div class="subject-section reveal" id="dsa">
+    <div class="subject-header">
+      <div class="subject-icon"><i class="fa-solid fa-diagram-project"></i></div>
+      <h2 class="subject-title">Data Structures &amp; Algorithms</h2>
+    </div>
+    <div class="ref-grid">
+      <div class="ref-card">
+        <span class="ref-num">01</span>
+        <div class="ref-body">
+          <p class="ref-title"><a href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" target="_blank">Introduction to Algorithms, 4th Edition</a> <span class="ref-type book">Book</span></p>
+          <p class="ref-author">Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein</p>
+          <p class="ref-desc">The definitive reference for algorithms — CLRS. Covers sorting, graph algorithms, dynamic programming, and much more with rigorous proofs.</p>
+        </div>
+      </div>
+      <div class="ref-card">
+        <span class="ref-num">02</span>
+        <div class="ref-body">
+          <p class="ref-title"><a href="https://www.pearson.com/en-us/subject-catalog/p/algorithm-design/P200000003374" target="_blank">Algorithm Design</a> <span class="ref-type book">Book</span></p>
+          <p class="ref-author">Jon Kleinberg &amp; Eva Tardos</p>
+          <p class="ref-desc">Focuses on algorithm design techniques — greedy algorithms, divide and conquer, network flow, and NP-completeness with elegant real-world examples.</p>
+        </div>
+      </div>
+      <div class="ref-card">
+        <span class="ref-num">03</span>
+        <div class="ref-body">
+          <p class="ref-title"><a href="https://www.youtube.com/playlist?list=PLyqSpQzTE6M9DKhN7z2fOpKTJWu-639_P" target="_blank">NPTEL: Design and Analysis of Algorithms</a> <span class="ref-type video">Video</span></p>
+          <p class="ref-author"><a href="https://www.cmi.ac.in/~madhavan/" target="_blank">Madhavan Mukund</a> — Chennai Mathematical Institute</p>
+          <p class="ref-desc">A well-structured NPTEL course covering algorithm fundamentals, time complexity analysis, and algorithmic paradigms.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Linear Algebra -->
+  <div class="subject-section reveal" id="linear-algebra">
+    <div class="subject-header">
+      <div class="subject-icon"><i class="fa-solid fa-table-cells"></i></div>
+      <h2 class="subject-title">Linear Algebra</h2>
+    </div>
+    <div class="ref-grid">
+      <div class="ref-card">
+        <span class="ref-num">01</span>
+        <div class="ref-body">
+          <p class="ref-title"><a href="https://linear.axler.net/" target="_blank">Linear Algebra Done Right</a> <span class="ref-type book">Book</span></p>
+          <p class="ref-author">Sheldon Axler</p>
+          <p class="ref-desc">A landmark textbook that develops linear algebra from a conceptual, determinant-free perspective. Ideal for a second course in linear algebra.</p>
+        </div>
+      </div>
+      <div class="ref-card">
+        <span class="ref-num">02</span>
+        <div class="ref-body">
+          <p class="ref-title"><a href="https://www.google.com/search?q=linear+algebra+gilbert+strang+notes" target="_blank">Lecture Notes for Linear Algebra</a> <span class="ref-type book">Book</span></p>
+          <p class="ref-author">Gilbert Strang — MIT</p>
+          <p class="ref-desc">MIT's foundational linear algebra resource, accessible and geometrically intuitive. Great companion to Gilbert Strang's famous video lectures.</p>
+        </div>
+      </div>
+      <div class="ref-card">
+        <span class="ref-num">03</span>
+        <div class="ref-body">
+          <p class="ref-title"><a href="https://www.youtube.com/playlist?list=PL7oBzLzHZ1wXQvQ938Wg1-soq09GywgOw" target="_blank">NPTEL: Linear Algebra</a> <span class="ref-type video">Video</span></p>
+          <p class="ref-author"><a href="https://sites.google.com/view/pranavharidas/home" target="_blank">Pranav Haridas</a></p>
+          <p class="ref-desc">A systematic NPTEL course covering vector spaces, eigenvalues, inner product spaces, and SVD with clear mathematical rigour.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Probability -->
+  <div class="subject-section reveal" id="probability">
+    <div class="subject-header">
+      <div class="subject-icon"><i class="fa-solid fa-dice"></i></div>
+      <h2 class="subject-title">Probability Theory</h2>
+    </div>
+    <div class="ref-grid">
+      <div class="ref-card">
+        <span class="ref-num">01</span>
+        <div class="ref-body">
+          <p class="ref-title"><a href="https://github.com/Kikou1998/textbook/blob/master/A%20First%20Course%20in%20Probability%209th%20Edition.pdf" target="_blank">A First Course in Probability, 9th Edition</a> <span class="ref-type book">Book</span></p>
+          <p class="ref-author">Sheldon M. Ross</p>
+          <p class="ref-desc">An accessible yet rigorous introduction to probability theory with many worked examples. Covers sample spaces, random variables, distributions, and limit theorems.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ToC -->
+  <div class="subject-section reveal" id="toc">
+    <div class="subject-header">
+      <div class="subject-icon"><i class="fa-solid fa-microchip"></i></div>
+      <h2 class="subject-title">Theory of Computation</h2>
+    </div>
+    <div class="ref-grid">
+      <div class="ref-card">
+        <span class="ref-num">01</span>
+        <div class="ref-body">
+          <p class="ref-title"><a href="https://fuuu.be/polytech/INFOF408/Introduction-To-The-Theory-Of-Computation-Michael-Sipser.pdf" target="_blank">Introduction to the Theory of Computation</a> <span class="ref-type book">Book</span></p>
+          <p class="ref-author">Michael Sipser — MIT</p>
+          <p class="ref-desc">The gold standard text for ToC. Covers finite automata, context-free grammars, Turing machines, decidability, and complexity theory in clear, elegant prose.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Graph Theory -->
+  <div class="subject-section reveal" id="graph">
+    <div class="subject-header">
+      <div class="subject-icon"><i class="fa-solid fa-circle-nodes"></i></div>
+      <h2 class="subject-title">Graph Theory</h2>
+    </div>
+    <div class="ref-grid">
+      <div class="ref-card">
+        <span class="ref-num">01</span>
+        <div class="ref-body">
+          <p class="ref-title"><a href="https://www.phindia.com/Books/BookDetail/9788120301450/graph-theory-with-applications-to-engineering-and-computer" target="_blank">Graph Theory with Applications to Engineering and Computer Science</a> <span class="ref-type book">Book</span></p>
+          <p class="ref-author">Narsingh Deo</p>
+          <p class="ref-desc">A classic introductory text that covers graph fundamentals with a strong engineering and CS focus — flows, trees, planarity, and matchings.</p>
+        </div>
+      </div>
+      <div class="ref-card">
+        <span class="ref-num">02</span>
+        <div class="ref-body">
+          <p class="ref-title"><a href="https://dwest.web.illinois.edu/" target="_blank">Introduction to Graph Theory</a> <span class="ref-type book">Book</span></p>
+          <p class="ref-author">Douglas West — University of Illinois</p>
+          <p class="ref-desc">A thorough treatment of graph structure and proof techniques. Covers connectivity, coloring, planar graphs, Ramsey theory, and more.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Machine Learning -->
+  <div class="subject-section reveal" id="ml">
+    <div class="subject-header">
+      <div class="subject-icon"><i class="fa-solid fa-robot"></i></div>
+      <h2 class="subject-title">Machine Learning</h2>
+    </div>
+    <div class="ref-grid">
+      <div class="ref-card">
+        <span class="ref-num">01</span>
+        <div class="ref-body">
+          <p class="ref-title"><a href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/" target="_blank">Hands-On Machine Learning with Scikit-Learn, Keras &amp; TensorFlow, 2nd Ed.</a> <span class="ref-type book">Book</span></p>
+          <p class="ref-author">Aurélien Géron</p>
+          <p class="ref-desc">The definitive practical ML book. Covers everything from classical ML to deep learning with excellent code examples. Perfect for hands-on learners.</p>
+        </div>
+      </div>
+      <div class="ref-card">
+        <span class="ref-num">02</span>
+        <div class="ref-body">
+          <p class="ref-title"><a href="https://mitpress.mit.edu/9780262028189/introduction-to-machine-learning/" target="_blank">Introduction to Machine Learning, 3rd Edition</a> <span class="ref-type book">Book</span></p>
+          <p class="ref-author">Ethem Alpaydın</p>
+          <p class="ref-desc">A balanced theoretical and applied introduction to ML. Covers supervised, unsupervised, and reinforcement learning with solid mathematical grounding.</p>
+        </div>
+      </div>
+      <div class="ref-card">
+        <span class="ref-num">03</span>
+        <div class="ref-body">
+          <p class="ref-title"><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rNH7qL6-efu_q2_bPuy0adh" target="_blank">Stanford CS229: Machine Learning</a> <span class="ref-type course">Course</span></p>
+          <p class="ref-author"><a href="https://avati.github.io/" target="_blank">Anand Avati</a> — Stanford University</p>
+          <p class="ref-desc">Stanford's legendary ML course available on YouTube. Covers linear models, SVMs, neural networks, EM algorithm, and more with rigorous derivations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span>© 2025 Ayantanu Laha</span>
+  <span><a href="./index.html">Home</a> · <a href="./project.html">Projects</a> · <a href="Ayantanu_Laha_CV.pdf" target="_blank">Resume</a></span>
+</footer>
+
+<script>
+  // Theme
+  const root=document.documentElement;
+  const saved=localStorage.getItem('al-theme')||'dark';
+  root.setAttribute('data-theme',saved);
+  document.getElementById('themeToggle').addEventListener('click',()=>{
+    const next=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    localStorage.setItem('al-theme',next);
+  });
+
+  // Reveal
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.06});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
